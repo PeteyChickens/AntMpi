@@ -12,8 +12,8 @@ public class AntsMPI {
 	public static void main(String[] args) throws MPIException {
 		
 		MPI.Init(args);		//Initialize MPI
-		int rank = MPI.COMM_WORLD.Rank();
-		int size = MPI.COMM_WORLD.Size();
+		int rank = MPI.COMM_WORLD.getRank();
+		int size = MPI.COMM_WORLD.getSize();
 		
 		//make board
 		row = 60;
@@ -46,8 +46,8 @@ public class AntsMPI {
 			
 			if(rank == 0){
 				
-				int [] spaces = new Space[5];
-				int [] message = new Space[2];
+				int [] spaces = new int[10];
+				int [] message = new int[2];
 				MPI.COMM_WORLD.recv(message, 2, MPI.INT, 1, 17);
 				spaces[0] = message[0];
 				spaces[1] = message[1];
