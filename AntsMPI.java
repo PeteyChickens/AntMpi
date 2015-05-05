@@ -40,7 +40,7 @@ public class AntsMPI {
 		swarm[3] = ant4;
 		swarm[4] = ant5;
 		
-		boolean stillFood = true:
+		boolean stillFood = true;
 		
 		while(stillFood) {
 			
@@ -77,8 +77,8 @@ public class AntsMPI {
 				int r = MPI.COMM_WORLD.getRank();
 				Space s = swarm[r-1].nextPosition();
 				int[] message = new int[2];
-				int[0] = s.row;
-				int[1] = s.col;
+				message[0] = s.row;
+				message[1] = s.col;
 				MPI.COMM_WORLD.send(message, 2, MPI.INT, 0, 17); 
 				
 			}
